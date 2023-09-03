@@ -53,8 +53,8 @@ public class EmployeeExtractor {
 
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-       // EmployeeExtractor.saveEmployeeDetailsUsingRunAsync(new File("employees1.json"));
-
+        EmployeeExtractor.saveEmployeeDetailsUsingRunAsync(new File("employees1.json"));
+        System.err.println("could not add the async calls");
         String sheetName = EmployeeExtractor.saveEmployeeDetailsUsingSupplyAsync();
         System.out.println(sheetName);
     }
