@@ -1,7 +1,6 @@
-package com.CompletableFuture;
+package com.AsyncOperationsMains;
 
 import com.CompletableFuture.com.database.EmployeeDatabase;
-import com.CompletableFuture.dto.Employee;
 import com.CompletableFuture.dto.SheetName;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -10,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.*;
 
 //In this demo we are trying to acheive the async nature of java
@@ -50,12 +48,18 @@ public class EmployeeExtractor {
         },fixedPool);
         return voidCompletableFuture.join();
     }
+    public void sendMail(String email) {
+        System.out.println("the training email has been sent to : "+email);
+    }
 
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        EmployeeExtractor.saveEmployeeDetailsUsingRunAsync(new File("employees1.json"));
-        System.err.println("could not add the async calls");
-        String sheetName = EmployeeExtractor.saveEmployeeDetailsUsingSupplyAsync();
-        System.out.println(sheetName);
+//        EmployeeExtractor.saveEmployeeDetailsUsingRunAsync(new File("employees1.json"));
+//        System.err.println("could not add the async calls");
+//        String sheetName = EmployeeExtractor.saveEmployeeDetailsUsingSupplyAsync();
+//        System.out.println(sheetName);
+        Actions a= new Actions();
+        a.ActionsOnEmployees().get();
     }
+
 }
